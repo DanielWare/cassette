@@ -90,7 +90,7 @@ namespace Cassette.RequireJS
 
             public override void Visit(VariableDeclaration node)
             {
-                if (node.EnclosingScope is GlobalScope && node.Identifier == varName)
+                if (node.EnclosingScope is GlobalScope && (node.Binding is BindingIdentifier identifier && identifier.Name == varName))
                 {
                     found = true;
                 }
